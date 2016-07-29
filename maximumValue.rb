@@ -1,50 +1,20 @@
-def maxValue
-
-puts "Please enter your first number!"
-
-a = gets.chomp
-
-puts "Please enter your second number!"
-
-b = gets.chomp
-
-puts "Please enter your third number!"
-
-c = gets.chomp
-
-puts "Please enter your fourth number!"
-
-d = gets.chomp
-
-
-if a > b && a > c && a > d
-  
-  puts "The maximum of numbers you have entered is" + " "  + a
-
+# Writing a code without using built_in max
+def maximum(myAr)
+  default = myAr[0]
+  myAr.empty? ? default = nil : myAr.each do |n| default = n if n > default end
+  default
 end
 
-if b > a && b > c && b > d
+# expect it to return 42 below
+result = maximum([2, 42, 22, 02])
+puts "max of 2, 42, 22, 02 is: #{result}"
 
-  puts "The maximum of numbers you have entered is" + " "  + b
-end
+# expect it to return nil when empty array is passed in
+result = maximum([])
+puts "max on empty set is: #{result.inspect}"
 
-if c > a && c > b && c > d
+result = maximum([-23, 0, -3])
+puts "max of -23, 0, -3 is: #{result}"
 
-  puts "The maximum of numbers you have entered is" + " "  + c
-end
-
-if d > a && d > b && d > c
-
-  puts "The maximum of numbers you have entered is" + " "  + d
-
-end
-
-end
-
-
-
-maxValue
-
-
-
-
+result = maximum([6])
+puts "max of just 6 is: #{result}"
